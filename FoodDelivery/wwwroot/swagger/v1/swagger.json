@@ -1,5 +1,5 @@
 {
-  "openapi": "3.0.1",
+  "swagger": "2.0",
   "info": {
     "title": "Food Delivery API",
     "description": "An ASP.NET Core Web API for food delivery",
@@ -15,33 +15,18 @@
         "tags": [
           "Address"
         ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
         "responses": {
           "200": {
             "description": "Success",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/AddressModel"
-                  }
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/AddressModel"
-                  }
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/AddressModel"
-                  }
-                }
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/AddressModel"
               }
             }
           }
@@ -51,25 +36,20 @@
         "tags": [
           "Address"
         ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/AddressModel"
-              }
-            },
-            "text/json": {
-              "schema": {
-                "$ref": "#/components/schemas/AddressModel"
-              }
-            },
-            "application/*+json": {
-              "schema": {
-                "$ref": "#/components/schemas/AddressModel"
-              }
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/AddressModel"
             }
           }
-        },
+        ],
         "responses": {
           "200": {
             "description": "Success"
@@ -80,25 +60,20 @@
         "tags": [
           "Address"
         ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/AddressModel"
-              }
-            },
-            "text/json": {
-              "schema": {
-                "$ref": "#/components/schemas/AddressModel"
-              }
-            },
-            "application/*+json": {
-              "schema": {
-                "$ref": "#/components/schemas/AddressModel"
-              }
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/AddressModel"
             }
           }
-        },
+        ],
         "responses": {
           "200": {
             "description": "Success"
@@ -109,25 +84,20 @@
         "tags": [
           "Address"
         ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/AddressModel"
-              }
-            },
-            "text/json": {
-              "schema": {
-                "$ref": "#/components/schemas/AddressModel"
-              }
-            },
-            "application/*+json": {
-              "schema": {
-                "$ref": "#/components/schemas/AddressModel"
-              }
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/AddressModel"
             }
           }
-        },
+        ],
         "responses": {
           "204": {
             "description": "Success"
@@ -140,56 +110,31 @@
         "tags": [
           "Address"
         ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
         "parameters": [
           {
-            "name": "id",
             "in": "path",
+            "name": "id",
             "required": true,
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            }
+            "type": "integer",
+            "format": "int32"
           }
         ],
         "responses": {
           "200": {
             "description": "Success",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/AddressModel"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/AddressModel"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/AddressModel"
-                }
-              }
+            "schema": {
+              "$ref": "#/definitions/AddressModel"
             }
           },
           "400": {
             "description": "Bad Request",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "type": "string"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "type": "string"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "type": "string"
-                }
-              }
+            "schema": {
+              "type": "string"
             }
           }
         }
@@ -200,33 +145,18 @@
         "tags": [
           "Order"
         ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
         "responses": {
           "200": {
             "description": "Success",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/OrderModel"
-                  }
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/OrderModel"
-                  }
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/OrderModel"
-                  }
-                }
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/OrderModel"
               }
             }
           }
@@ -236,25 +166,20 @@
         "tags": [
           "Order"
         ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/OrderModel"
-              }
-            },
-            "text/json": {
-              "schema": {
-                "$ref": "#/components/schemas/OrderModel"
-              }
-            },
-            "application/*+json": {
-              "schema": {
-                "$ref": "#/components/schemas/OrderModel"
-              }
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/OrderModel"
             }
           }
-        },
+        ],
         "responses": {
           "200": {
             "description": "Success"
@@ -265,25 +190,20 @@
         "tags": [
           "Order"
         ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/OrderModel"
-              }
-            },
-            "text/json": {
-              "schema": {
-                "$ref": "#/components/schemas/OrderModel"
-              }
-            },
-            "application/*+json": {
-              "schema": {
-                "$ref": "#/components/schemas/OrderModel"
-              }
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/OrderModel"
             }
           }
-        },
+        ],
         "responses": {
           "200": {
             "description": "Success"
@@ -294,25 +214,20 @@
         "tags": [
           "Order"
         ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/OrderModel"
-              }
-            },
-            "text/json": {
-              "schema": {
-                "$ref": "#/components/schemas/OrderModel"
-              }
-            },
-            "application/*+json": {
-              "schema": {
-                "$ref": "#/components/schemas/OrderModel"
-              }
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/OrderModel"
             }
           }
-        },
+        ],
         "responses": {
           "204": {
             "description": "Success"
@@ -325,56 +240,31 @@
         "tags": [
           "Order"
         ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
         "parameters": [
           {
-            "name": "id",
             "in": "path",
+            "name": "id",
             "required": true,
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            }
+            "type": "integer",
+            "format": "int32"
           }
         ],
         "responses": {
           "200": {
             "description": "Success",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/OrderModel"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/OrderModel"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/OrderModel"
-                }
-              }
+            "schema": {
+              "$ref": "#/definitions/OrderModel"
             }
           },
           "400": {
             "description": "Bad Request",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "type": "string"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "type": "string"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "type": "string"
-                }
-              }
+            "schema": {
+              "type": "string"
             }
           }
         }
@@ -385,33 +275,18 @@
         "tags": [
           "Product"
         ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
         "responses": {
           "200": {
             "description": "Success",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/ProductModel"
-                  }
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/ProductModel"
-                  }
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/ProductModel"
-                  }
-                }
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/ProductModel"
               }
             }
           }
@@ -421,25 +296,20 @@
         "tags": [
           "Product"
         ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/ProductModel"
-              }
-            },
-            "text/json": {
-              "schema": {
-                "$ref": "#/components/schemas/ProductModel"
-              }
-            },
-            "application/*+json": {
-              "schema": {
-                "$ref": "#/components/schemas/ProductModel"
-              }
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/ProductModel"
             }
           }
-        },
+        ],
         "responses": {
           "200": {
             "description": "Success"
@@ -450,25 +320,20 @@
         "tags": [
           "Product"
         ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/ProductModel"
-              }
-            },
-            "text/json": {
-              "schema": {
-                "$ref": "#/components/schemas/ProductModel"
-              }
-            },
-            "application/*+json": {
-              "schema": {
-                "$ref": "#/components/schemas/ProductModel"
-              }
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/ProductModel"
             }
           }
-        },
+        ],
         "responses": {
           "200": {
             "description": "Success"
@@ -479,25 +344,20 @@
         "tags": [
           "Product"
         ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/ProductModel"
-              }
-            },
-            "text/json": {
-              "schema": {
-                "$ref": "#/components/schemas/ProductModel"
-              }
-            },
-            "application/*+json": {
-              "schema": {
-                "$ref": "#/components/schemas/ProductModel"
-              }
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/ProductModel"
             }
           }
-        },
+        ],
         "responses": {
           "204": {
             "description": "Success"
@@ -510,56 +370,31 @@
         "tags": [
           "Product"
         ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
         "parameters": [
           {
-            "name": "id",
             "in": "path",
+            "name": "id",
             "required": true,
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            }
+            "type": "integer",
+            "format": "int32"
           }
         ],
         "responses": {
           "200": {
             "description": "Success",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProductModel"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProductModel"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProductModel"
-                }
-              }
+            "schema": {
+              "$ref": "#/definitions/ProductModel"
             }
           },
           "400": {
             "description": "Bad Request",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "type": "string"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "type": "string"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "type": "string"
-                }
-              }
+            "schema": {
+              "type": "string"
             }
           }
         }
@@ -570,33 +405,18 @@
         "tags": [
           "User"
         ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
         "responses": {
           "200": {
             "description": "Success",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/UserModel"
-                  }
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/UserModel"
-                  }
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/UserModel"
-                  }
-                }
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/UserModel"
               }
             }
           }
@@ -606,25 +426,20 @@
         "tags": [
           "User"
         ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/UserModel"
-              }
-            },
-            "text/json": {
-              "schema": {
-                "$ref": "#/components/schemas/UserModel"
-              }
-            },
-            "application/*+json": {
-              "schema": {
-                "$ref": "#/components/schemas/UserModel"
-              }
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/UserModel"
             }
           }
-        },
+        ],
         "responses": {
           "200": {
             "description": "Success"
@@ -635,25 +450,20 @@
         "tags": [
           "User"
         ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/UserModel"
-              }
-            },
-            "text/json": {
-              "schema": {
-                "$ref": "#/components/schemas/UserModel"
-              }
-            },
-            "application/*+json": {
-              "schema": {
-                "$ref": "#/components/schemas/UserModel"
-              }
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/UserModel"
             }
           }
-        },
+        ],
         "responses": {
           "200": {
             "description": "Success"
@@ -664,25 +474,20 @@
         "tags": [
           "User"
         ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/UserModel"
-              }
-            },
-            "text/json": {
-              "schema": {
-                "$ref": "#/components/schemas/UserModel"
-              }
-            },
-            "application/*+json": {
-              "schema": {
-                "$ref": "#/components/schemas/UserModel"
-              }
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/UserModel"
             }
           }
-        },
+        ],
         "responses": {
           "204": {
             "description": "Success"
@@ -695,135 +500,98 @@
         "tags": [
           "User"
         ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
         "parameters": [
           {
-            "name": "id",
             "in": "path",
+            "name": "id",
             "required": true,
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            }
+            "type": "integer",
+            "format": "int32"
           }
         ],
         "responses": {
           "200": {
             "description": "Success",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/UserModel"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/UserModel"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/UserModel"
-                }
-              }
+            "schema": {
+              "$ref": "#/definitions/UserModel"
             }
           },
           "400": {
             "description": "Bad Request",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "type": "string"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "type": "string"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "type": "string"
-                }
-              }
+            "schema": {
+              "type": "string"
             }
           }
         }
       }
     }
   },
-  "components": {
-    "schemas": {
-      "AddressModel": {
-        "type": "object",
-        "properties": {
-          "city": {
-            "type": "string",
-            "nullable": true
-          },
-          "street": {
-            "type": "string",
-            "nullable": true
-          },
-          "house": {
-            "type": "string",
-            "nullable": true
-          }
+  "definitions": {
+    "AddressModel": {
+      "type": "object",
+      "properties": {
+        "city": {
+          "type": "string"
         },
-        "additionalProperties": false
-      },
-      "OrderModel": {
-        "type": "object",
-        "properties": {
-          "userId": {
-            "type": "integer",
-            "format": "int64"
-          },
-          "addressId": {
-            "type": "integer",
-            "format": "int64"
-          },
-          "commentary": {
-            "type": "string",
-            "nullable": true
-          },
-          "totalPrice": {
-            "type": "number",
-            "format": "double"
-          }
+        "street": {
+          "type": "string"
         },
-        "additionalProperties": false
-      },
-      "ProductModel": {
-        "type": "object",
-        "properties": {
-          "name": {
-            "type": "string",
-            "nullable": true
-          },
-          "price": {
-            "type": "number",
-            "format": "double"
-          },
-          "amount": {
-            "type": "integer",
-            "format": "int32"
-          }
+        "house": {
+          "type": "string"
+        }
+      }
+    },
+    "OrderModel": {
+      "type": "object",
+      "properties": {
+        "userId": {
+          "format": "int64",
+          "type": "integer"
         },
-        "additionalProperties": false
-      },
-      "UserModel": {
-        "type": "object",
-        "properties": {
-          "name": {
-            "type": "string",
-            "nullable": true
-          },
-          "addressId": {
-            "type": "integer",
-            "format": "int64"
-          }
+        "addressId": {
+          "format": "int64",
+          "type": "integer"
         },
-        "additionalProperties": false
+        "commentary": {
+          "type": "string"
+        },
+        "totalPrice": {
+          "format": "double",
+          "type": "number"
+        }
+      }
+    },
+    "ProductModel": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "price": {
+          "format": "double",
+          "type": "number"
+        },
+        "amount": {
+          "format": "int32",
+          "type": "integer"
+        }
+      }
+    },
+    "UserModel": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "addressId": {
+          "format": "int64",
+          "type": "integer"
+        }
       }
     }
   }
