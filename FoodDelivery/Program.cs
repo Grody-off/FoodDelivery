@@ -41,6 +41,9 @@ builder.Services.AddScoped<IOrderService, OrderService>();
 builder.Services.AddScoped<IProductService, ProductService>();
 builder.Services.AddScoped<IUserService, UserService>();
 
+// var port = Environment.GetEnvironmentVariable("PORT") ?? "8080";
+// var url = $"http://0.0.0.0:{port}";
+// var target = Environment.GetEnvironmentVariable("TARGET") ?? "World";
 
 var app = builder.Build();
 
@@ -54,8 +57,15 @@ app.UseSwaggerUI();
 
 app.UseHttpsRedirection();
 
+//app.UseRouting();
 app.UseAuthorization();
 
+// app.UseEndpoints(endpoints =>
+// {
+//     endpoints.MapControllers();
+// });
 app.MapControllers();
 
+//app.MapGet("/", () => $"Hello {target}!");
+// app.Run(url);
 app.Run();
