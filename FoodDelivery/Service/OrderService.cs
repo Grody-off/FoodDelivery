@@ -8,10 +8,12 @@ namespace FoodDelivery.Service;
 public class OrderService : IOrderService
 {
     private readonly IRepository<OrderEntity> _productRepository;
+    private readonly INotificationService _notificationService;
 
-    public OrderService(IRepository<OrderEntity> productRepository)
+    public OrderService(IRepository<OrderEntity> productRepository, INotificationService notificationService)
     {
         _productRepository = productRepository;
+        _notificationService = notificationService;
     }
     
     public async ValueTask<OrderEntity?> GetById(long id)
@@ -27,6 +29,7 @@ public class OrderService : IOrderService
     public async Task Add(OrderEntity entity)
     {
         await _productRepository.Add(entity);
+        await _notificationService.SendToQueue($"{entity.Id}");
     }
 
     public async Task Update(OrderEntity entity)

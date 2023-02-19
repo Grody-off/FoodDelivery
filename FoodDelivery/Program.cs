@@ -1,5 +1,4 @@
 using System.Net;
-using System.Reflection;
 using FoodDelivery.Data;
 using FoodDelivery.Repository;
 using FoodDelivery.Service;
@@ -10,10 +9,8 @@ using Microsoft.OpenApi.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
 
 builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 
 builder.Services.Configure<ForwardedHeadersOptions>(options =>
@@ -48,37 +45,23 @@ builder.Services.AddScoped<IAddressService, AddressService>();
 builder.Services.AddScoped<IOrderService, OrderService>();
 builder.Services.AddScoped<IProductService, ProductService>();
 builder.Services.AddScoped<IUserService, UserService>();
+builder.Services.AddScoped<INotificationService, NotificationService>();
 
-// var port = Environment.GetEnvironmentVariable("PORT") ?? "8080";
-// var url = $"http://0.0.0.0:{port}";
-// var target = Environment.GetEnvironmentVariable("TARGET") ?? "World";
+builder.Services.AddHostedService<MessageBgJob>();
 
 var app = builder.Build();
-
-// Configure the HTTP request pipeline.
 
 app.UseSwagger(c =>
 {
     c.SerializeAsV2 = true;
 });
 app.UseSwaggerUI();
-
 app.UseHttpsRedirection();
-
 app.UseForwardedHeaders(new ForwardedHeadersOptions
 {
     ForwardedHeaders = ForwardedHeaders.XForwardedFor | ForwardedHeaders.XForwardedProto
 });
 
-//app.UseRouting();
 app.UseAuthorization();
-
-// app.UseEndpoints(endpoints =>
-// {
-//     endpoints.MapControllers();
-// });
 app.MapControllers();
-
-//app.MapGet("/", () => $"Hello {target}!");
-// app.Run(url);
 app.Run();
